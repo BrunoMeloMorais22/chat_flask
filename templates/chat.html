@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>Bem-vindo ao Chat</h1>
-        <p>Por favor, conserve como uma pessoa normal</p>
+        <p>Por favor, converse como uma pessoa normal</p>
     </header>
 
     <div class="chat-container">
@@ -29,7 +29,7 @@
     <script>
         
 
-var socket = io.connect("http://127.0.0.1:8000")
+var socket = io.connect("https://chat-flask-8lvq.onrender.com")
 
 document.addEventListener("DOMContentLoaded", function(){
     let savedUsername = localStorage.getItem("username")
