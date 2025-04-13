@@ -15,7 +15,7 @@ app.permanent_session_lifetime = timedelta(hours=2)
 
 db.init_app(app)
 
-CORS(app, origins=["https://chat-flask-8lvq.onrender.com"])
+CORS(app)
 
 from models import User
 
