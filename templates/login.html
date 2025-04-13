@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>Tela de login</title>
+</head>
+<body>
+    <form onsubmit="fazerLogin(event)">
+        <h1>Faça seu Login</h1>
+        <input type="text" id="username" name="username" placeholder="Usuário"><br><br>
+        <input type="text" id="password" name="password" placeholder="Senha"> <br><br>
+
+        <button type="submit">Fazer login</button> <br><br>
+    </form>
+
+    <div id="resultadoLogin"></div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

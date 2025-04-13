@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Tela de login</title>
+</head>
+<body>
+    <form action="" onsubmit="fazerCadastro(event)">
+        <h1>Faça seu Cadastro</h1>
+        <p>Preencha todas as informações para acessar ao chat</p> <br>
+        
+        <input type="text" id="novoUsername" name="novoUsername" placeholder="Usuário"><br><br>
+
+        <input type="text" id="novaSenha" name="novaSenha" placeholder="Senha"> <br><br>
+
+        <button type="submit">Fazer Cadastro</button> <br><br>
+
+        <p>Já tem uma conta? <a href="{{ url_for('login') }}">Fazer Login</a></p>
+    </form>
+
+    <div id="resultadoCadastro"></div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
