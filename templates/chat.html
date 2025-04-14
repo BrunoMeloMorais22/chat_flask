@@ -25,42 +25,40 @@
 
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script>
-        
+        var socket = io(`${window.location.protocol}//${window.location.hostname}:${window.location.port}`);
 
-var socket = io.connect("http://127.0.0.1:8000")
 
-document.addEventListener("DOMContentLoaded", function(){
-    let savedUsername = localStorage.getItem("username")
+        document.addEventListener("DOMContentLoaded", function(){
+            let savedUsername = localStorage.getItem("username")
 
-    if(savedUsername){
-        document.getElementById("username").value = savedUsername
-    }
-})
+            if(savedUsername){
+                document.getElementById("username").value = savedUsername
+            }
+        })
 
-socket.on("message", function(data){
-    let chat = document.getElementById("chat")
-    let p = document.createElement("p")
-    p.innerHTML = `<strong>${data.username}: </strong> ${data.message}`
+        socket.on("message", function(data){
+            let chat = document.getElementById("chat")
+            let p = document.createElement("p")
+            p.innerHTML = `<strong>${data.username}: </strong> ${data.message}`
 
-    chat.appendChild(p)
-})
+            chat.appendChild(p)
+        })
 
-function enviarMensagem(){
-    let username = document.getElementById("username").value
-    let msg = document.getElementById("msg").value
+        function enviarMensagem(){
+            let username = document.getElementById("username").value
+            let msg = document.getElementById("msg").value
 
-    if(!username){
-        alert("Digite o usuário")
-        return
-    }
+            if(!username){
+                alert("Digite o usuário")
+                return
+            }
 
-    localStorage.setItem("username", username)
+            localStorage.setItem("username", username)
 
-    if(msg){
-        socket.emit("message", {username: username, message:msg})
-        document.getElementById("msg").value = ""
-    }
-}
+            if(msg){
+                socket.emit("message", {username: username, message:msg})
+            }
+        }
     </script>
 </body>
 </html>
