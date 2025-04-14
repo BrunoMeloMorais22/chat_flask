@@ -8,6 +8,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
+
+
 app.secret_key = "corinthians"
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///db.sqlite3'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
